@@ -156,8 +156,9 @@ async def check_and_notify():
 
             logger.info(f"State changed: {data['ip']} ({data['rrset']}) {prev_status} -> {curr_status}")
 
+            status_header = "🟩 <b>Node Online</b>" if new_value == 1 else "🟥 <b>Node Offline</b>"
             text = (
-                f"⚠️ <b>Healthcheck state changed!</b>\n\n"
+                f"{status_header}\n\n"
                 f"<code>{data['ip']}</code> | <code>{data['rrset']}</code>\n"
                 f"<code>{data['zone']}</code> | <code>{monitor_id}</code>\n\n"
                 f"<b>{prev_status}</b> → <b>{curr_status}</b>"
