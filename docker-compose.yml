@@ -1,0 +1,12 @@
+services:
+  gcore-monitor:
+    build: .
+    container_name: gcore-dns-monitor
+    restart: unless-stopped
+    env_file:
+      - .env
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
