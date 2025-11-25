@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/hteppl/gcore-dns-monitor/releases/"><img src="https://img.shields.io/github/v/release/hteppl/gcore-dns-monitor.svg" alt="Release"></a>
   <a href="https://hub.docker.com/r/hteppl/gcore-dns-monitor/"><img src="https://img.shields.io/badge/DockerHub-gcore--dns--monitor-blue" alt="DockerHub"></a>
-  <a href="https://img.shields.io/github/actions/workflow/status/hteppl/gcore-dns-monitor/release.yaml.svg"><img src="https://github.com/hteppl/gcore-dns-monitor/actions" alt="Build"></a>
+  <a href="https://github.com/hteppl/gcore-dns-monitor/actions"><img src="https://img.shields.io/github/actions/workflow/status/hteppl/gcore-dns-monitor/dockerhub-publish.yaml" alt="Build"></a>
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3.12-blue.svg" alt="Python 3.12"></a>
   <a href="https://opensource.org/licenses/GPL-3.0"><img src="https://img.shields.io/badge/license-GPLv3-green.svg" alt="License: GPL v3"></a>
 </p>
