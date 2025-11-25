@@ -1,6 +1,6 @@
 services:
   gcore-monitor:
-    build: .
+    image: hteppl/gcore-dns-monitor:latest
     container_name: gcore-dns-monitor
     restart: unless-stopped
     env_file:
