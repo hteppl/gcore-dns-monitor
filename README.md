@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.postimg.cc/HnmXJMp5/Gcore-logo-svg.png" alt="Gcore DNS Monitor" width="600">
+  <img src="https://raw.githubusercontent.com/hteppl/gcore-dns-monitor/main/.github/images/logo.png" alt="Gcore DNS Monitor" width="600">
 </p>
 
 ## gcore-dns-monitor
