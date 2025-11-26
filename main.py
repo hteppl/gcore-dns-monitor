@@ -24,6 +24,7 @@ CHAT_ID = int(os.getenv("TG_CHAT_ID"))
 TOPIC_ID = int(os.getenv("TG_TOPIC_ID")) if os.getenv("TG_TOPIC_ID") else None
 CHECK_INTERVAL = int(os.getenv("CHECK_INTERVAL", 30))
 REMINDER_INTERVAL = int(os.getenv("REMINDER_INTERVAL", 30))
+FILTER_DOMAIN = os.getenv("FILTER_DOMAIN", "").strip()
 
 client = Gcore(api_key=API_TOKEN)
 bot = Bot(token=TG_TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
@@ -99,7 +100,10 @@ def fetch_metrics() -> Optional[Dict[str, dict]]:
     """Fetch and parse metrics, return None on error."""
     try:
         raw = client.dns.metrics.list()
-        return parse_metrics(raw)
+        parsed = parse_metrics(raw)
+        if FILTER_DOMAIN:
+            parsed = {mid: data for mid, data in parsed.items() if FILTER_DOMAIN in data["zone"]}
+        return parsed
     except Exception as e:
         logger.error(f"Error fetching metrics: {e}")
         return None
@@ -210,6 +214,8 @@ async def main():
 
     logger.info("Starting DNS healthcheck monitor")
     logger.info(f"Check interval: {CHECK_INTERVAL}s, Reminder interval: {REMINDER_INTERVAL}m {'(disabled)' if REMINDER_INTERVAL == -1 else ''}")
+    if FILTER_DOMAIN:
+        logger.info(f"Filtering by domain: {FILTER_DOMAIN}")
 
     parsed = fetch_metrics()
     if parsed is None:

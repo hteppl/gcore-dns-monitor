@@ -46,6 +46,9 @@ CHECK_INTERVAL=30
 
 # Reminder interval in minutes (default: 30, -1 to disable)
 REMINDER_INTERVAL=30
+
+# Filter by domain (optional, leave empty to monitor all domains)
+FILTER_DOMAIN=
 ```
 
 | Variable            | Description                                       | Default  |
@@ -56,6 +59,7 @@ REMINDER_INTERVAL=30
 | `TG_TOPIC_ID`       | Telegram topic ID (optional)                      | -        |
 | `CHECK_INTERVAL`    | Polling interval in seconds                       | 30       |
 | `REMINDER_INTERVAL` | DOWN reminder interval in minutes (-1 to disable) | 30       |
+| `FILTER_DOMAIN`     | Filter by domain (empty = all domains)            | -        |
 
 ## Quick Start
 
